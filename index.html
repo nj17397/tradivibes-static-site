@@ -7,27 +7,29 @@
     <title>Benefits of Eating a Healthy Breakfast</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            /*font-family: 'Arial', sans-serif;*/
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
             text-align: center;
+            font-family: fantasy;
         }
         header {
             margin-top: 30px;
         }
         img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 5px solid #1e3d58;
+            width: 700px;
+            height: 700px;
+            /*border-radius: 50%;*/
+            /*border: 5px solid #1e3d58;*/
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         h1 {
             color: #1e3d58;
             font-size: 2.5em;
             font-weight: bold;
-            margin-top: 20px;
+            padding-top: 20px;
+            font-family:  fantasy;
         }
         section {
             background-color: #ffffff;
@@ -57,16 +59,29 @@
             width: 100%;
             bottom: 0;
         }
+
+        .image-section {
+            width: 100%;
+            height: 50%;
+            background-color: antiquewhite;
+        }
+
+        .content-section {
+            width: 100%;
+            height: 50%;
+        }
     </style>
 </head>
 <body>
+    <div style="width: 100%; height: 100%;">
 
-    <header>
-        <img src="assets/breakfast.png" alt="Healthy Breakfast Image">
-        <h1>The Benefits of Eating a Healthy Breakfast</h1>
-    </header>
+        <div class="image-section">
+                            <h1>The Benefits of Eating a Healthy Breakfast</h1>
 
-    <section>
+                 <img src="assets/breakfast.png" alt="Healthy Breakfast Image">
+        </div>
+        <div class="content-section">
+            <section>
         <h2>Why is a Healthy Breakfast Important?</h2>
         <p>Eating a healthy breakfast is essential to jumpstart your day. After a long night's rest, your body needs fuel to restore energy levels and prepare for the day ahead. A nutritious breakfast helps you stay focused, energized, and ready to tackle tasks effectively. By eating a combination of protein, fiber, and healthy fats, you'll maintain better mental clarity and improve productivity throughout the morning.</p>
     </section>
@@ -91,6 +106,13 @@
             <li>- Healthy fats like avocado or chia seeds</li>
         </ul>
     </section>
+
+        </div>
+
+    </div>
+
+  
+    
 
     <footer>
     </footer>
