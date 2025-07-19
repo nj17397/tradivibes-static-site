@@ -2,7 +2,7 @@ name: Send WhatsApp Message
 
 on:
   schedule:
-    - cron: '25 18 * * *'  # 23:55 PM IST
+    - cron: '35 18 * * *'  # 23:55 PM IST
   workflow_dispatch:
 
 jobs:
@@ -22,7 +22,7 @@ jobs:
         run: pip install twilio
 
       - name: Send WhatsApp message
-        run: python send_whatsapp.py
+        run: python scripts/send_whatsapp.py
         env:
           ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
           AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
