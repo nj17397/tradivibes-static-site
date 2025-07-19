@@ -1,0 +1,30 @@
+name: Send WhatsApp Message
+
+on:
+  schedule:
+    - cron: '25 18 * * *'  # 23:55 PM IST
+  workflow_dispatch:
+
+jobs:
+  send-message:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install Twilio
+        run: pip install twilio
+
+      - name: Send WhatsApp message
+        run: python send_whatsapp.py
+        env:
+          ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
+          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+          FROM_WHATSAPP_NO: ${{ secrets.FROM_WHATSAPP_NO }}
+          TO_WHATSAPP_NO: ${{ secrets.TO_WHATSAPP_NO }}
