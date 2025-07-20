@@ -18,8 +18,16 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install Twilio
-        run: pip install twilio
+      - name: Cache Python dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install packages
+        run: pip install -r requirements.txt
 
       - name: Generate stock prediction
         run: python scripts/daily_moving_avg_app.py static/symbol_list_20250621.csv static/
