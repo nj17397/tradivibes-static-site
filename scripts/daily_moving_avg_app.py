@@ -19,8 +19,8 @@ symbol_list = df_symbols['Symbol'].tolist()
 stocks_to_buy_df = pd.DataFrame()
 
 # Get the current date in 'yyyy-mm-dd' format
-current_date = datetime.now().strftime('%Y-%m-%d')
-#current_date='2025-06-20'
+# current_date = datetime.now().strftime('%Y-%m-%d')
+current_date='2025-07-18'
 
 # Iterate through the symbol list
 for symbol in symbol_list:
