@@ -30,7 +30,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Generate stock prediction
-        run: python scripts/daily_moving_avg_app.py static/symbol_list_20250621.csv static/
+        run: python scripts/daily_moving_avg_app.py static/symbol_list_20250621.csv static
     
       - name: Send WhatsApp message
         run: python scripts/send_whatsapp.py
