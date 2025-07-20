@@ -21,6 +21,12 @@ jobs:
       - name: Install Twilio
         run: pip install twilio
 
+      - name: Generate stock prediction
+        run: python scripts/daily_moving_avg_app.py
+        args: 
+          static/symbol_list_20250621.csv
+          static/
+
       - name: Send WhatsApp message
         run: python scripts/send_whatsapp.py
         env:
