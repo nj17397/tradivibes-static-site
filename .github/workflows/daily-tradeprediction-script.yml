@@ -2,7 +2,7 @@ name: Send WhatsApp Message
 
 on:
   schedule:
-    - cron: '30 9 * * 1-5'  # 15:00 PM IST
+    - cron: '50 09 * * 1-5'  # 15:00 PM IST
   workflow_dispatch:
 
 jobs:
