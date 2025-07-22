@@ -38,7 +38,7 @@ message = client.messages.create(
 )
 
 print(f"✅ Message sent successfully! SID: {message.sid}")
-    print(f"Status: {message.status}")
+print(f"Status: {message.status}")
 
 except TwilioRestException as e:
     print(f"❌ Failed to send message: {e.msg}")
