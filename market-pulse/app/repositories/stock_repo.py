@@ -52,7 +52,8 @@ def fetch_history(db, from_date, to_date):
                CASE
                   WHEN call_closed_at IS NULL THEN NULL
                   ELSE ROUND(DATEDIFF(call_closed_at, DATE(updated_at)) / 7, 2)
-               END AS holding_week
+               END AS holding_week,
+                 call_status
         FROM trading.stock_upside_analysis
         WHERE date(updated_at) BETWEEN :from_date AND :to_date
         ORDER BY updated_at DESC

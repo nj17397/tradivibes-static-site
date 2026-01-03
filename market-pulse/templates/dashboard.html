@@ -129,6 +129,62 @@
         .risk {
             color: #dc2626;
         }
+
+        /* Date Picker CSS */
+        .date-filter {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-top: 5%;
+            margin-bottom: 16px;
+        }
+
+        .date-filter label {
+            font-weight: 500;
+        }
+
+        .date-filter button {
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+
+        /* Table Css */
+
+        #history-table {
+            margin-top: 3%;
+        }
+
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .history-table th,
+        .history-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .history-table th {
+            background: #f5f5f5;
+            font-weight: 600;
+        }
+
+        .profit {
+            color: green;
+            font-weight: 600;
+        }
+
+        .loss {
+            color: red;
+            font-weight: 600;
+        }
+
+        
+
+
+        
     </style>
 </head>
 <body>
@@ -140,8 +196,45 @@
 
 <main>
     <div id="stock-cards" class="grid"></div>
+    <div class="date-filter">
+        <label>
+            From:
+            <input type="date" id="fromDate">
+        </label>
+
+        <label>
+            To:
+            <input type="date" id="toDate">
+        </label>
+
+        <button id="applyDateFilterBtn">Apply</button>
+        <button  id="resetDateFilterBtn">Reset</button>
+            <!-- <button  id="resetBtn" onclick="resetFilter()">Reset</button> -->
+
+    </div>
+    <div id="history-table"> 
+        
+
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Stock</th>
+                    <th>Called On</th>
+                    <th>Called At</th>
+                    <th>Sold At</th>
+                    <th>Profit (%)</th>
+                    <th>Stop Loss</th>
+                    <th>Period</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="history-table-body"></tbody>
+        </table>
+    </div>
 </main>
 
 <script src="/static/js/dashboard.js"></script>
+<script src="/static/js/history_table.js"></script>
+
 </body>
 </html>

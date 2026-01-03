@@ -20,3 +20,8 @@ class StockHistoryOut(BaseModel):
     stop_loss: Optional[float]
     pct_profit: Optional[float]
     holding_week: Optional[float]
+    call_status : str
+
+
+
+    
