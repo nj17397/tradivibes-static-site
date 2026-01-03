@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List
+from typing import List,Optional
 from datetime import date
 
 
@@ -14,8 +14,9 @@ class StockPickOut(BaseModel):
 
 class StockHistoryOut(BaseModel):
     stock_name: str
-    created_at: date
-    call_price: float
-    current_price: float
-    pct_change: float
-    analysis_pdf_url: str | None
+    updated_at: date
+    call_price: Optional[float]
+    sell_price: Optional[float]
+    stop_loss: Optional[float]
+    pct_profit: Optional[float]
+    holding_week: Optional[float]

@@ -38,14 +38,24 @@ def fetch_today_picks(db, limit: int):
 def fetch_history(db, from_date, to_date):
     query = text("""
         SELECT stock_name,
-               created_at,
                call_price,
-               current_price,
-               ROUND(((current_price - call_price) / call_price) * 100, 2) AS pct_change,
-               analysis_pdf_url
-        FROM stock_call_history
-        WHERE created_at BETWEEN :from_date AND :to_date
-        ORDER BY created_at DESC
+               sell_price,
+               stop_loss,
+               DATE(updated_at) as updated_at,
+               CASE
+                  WHEN call_price IS NULL
+                  OR sell_price IS NULL
+                  OR call_price = 0
+                  THEN NULL
+                  ELSE ROUND(((sell_price - call_price) / call_price) * 100, 2)
+                END AS pct_profit,
+               CASE
+                  WHEN call_closed_at IS NULL THEN NULL
+                  ELSE ROUND(DATEDIFF(call_closed_at, DATE(updated_at)) / 7, 2)
+               END AS holding_week
+        FROM trading.stock_upside_analysis
+        WHERE date(updated_at) BETWEEN :from_date AND :to_date
+        ORDER BY updated_at DESC
     """)
     return db.execute(
         query,

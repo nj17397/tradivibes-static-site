@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarketPulse | Opportunity Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .stock-card:hover { border-color: #10b981; transform: translateY(-4px); }
+        input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1); opacity: 0.5; }
+    </style>
+</head>
+<body class="bg-[#0B0E14] text-gray-100 min-h-screen pb-20">
+
+    <nav class="border-b border-gray-800 bg-[#0B0E14]/80 sticky top-0 z-50 px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center font-bold text-black text-xl">M</div>
+            <span class="text-xl font-bold tracking-tight">MarketPulse <span class="text-emerald-500">AI</span></span>
+        </div>
+        <div class="hidden md:block text-sm font-medium text-gray-500">
+            High-Conviction Growth Analysis
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 mt-10">
+        
+        <header class="mb-8">
+            <h2 class="text-2xl font-bold">Daily High-Conviction Picks</h2>
+            <p class="text-gray-400 text-sm">Top analyzed stocks for <span class="text-emerald-500 font-semibold underline decoration-emerald-800">Dec 30, 2025</span></p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            
+            <div class="stock-card bg-[#161B22] border border-gray-800 p-6 rounded-2xl transition-all duration-300 flex flex-col">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold tracking-tight">ZOMATO</h3>
+                        <span class="text-[10px] text-gray-500 font-mono tracking-widest uppercase">NSE: ZOMATO</span>
+                    </div>
+                    <span class="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-full text-xs font-bold border border-emerald-500/20">
+                        +12.5% Exp.
+                    </span>
+                </div>
+
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">Aggressive expansion in Blinkit dark stores. AI predicts margin improvement despite high operational scale-up.</p>
+                
+                <div class="space-y-5 pt-4 border-t border-gray-800 mt-auto">
+                    <div class="flex flex-col gap-1">
+                        <span class="text-[10px] font-bold uppercase text-emerald-500 tracking-wider">Key Growth Pros</span>
+                        <div class="space-y-1">
+                            <p class="text-[12px] text-gray-200 leading-tight">✓ Dominant market share in Quick Commerce sector.</p>
+                            <p class="text-[12px] text-gray-200 leading-tight">✓ Increasing take-rates from restaurant partners.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-1">
+                        <span class="text-[10px] font-bold uppercase text-rose-500 tracking-wider">Key Risk Factors</span>
+                        <div class="space-y-1">
+                            <p class="text-[12px] text-gray-300 leading-tight">✕ High sensitivity to hyper-local fuel price surges.</p>
+                            <p class="text-[12px] text-gray-300 leading-tight">✕ Operational burn remains high in Tier-3 expansion.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stock-card bg-[#161B22] border border-gray-800 p-6 rounded-2xl transition-all duration-300 flex flex-col">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold tracking-tight">RELIANCE</h3>
+                        <span class="text-[10px] text-gray-500 font-mono tracking-widest uppercase">NSE: RELIANCE</span>
+                    </div>
+                    <span class="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-full text-xs font-bold border border-emerald-500/20">
+                        +5.8% Exp.
+                    </span>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">Strong support at ₹2400. Retail wing expansion into tier-2 cities driving positive sentiment.</p>
+                
+                <div class="space-y-5 pt-4 border-t border-gray-800 mt-auto">
+                    <div class="flex flex-col gap-1">
+                        <span class="text-[10px] font-bold uppercase text-emerald-500 tracking-wider">Key Growth Pros</span>
+                        <div class="space-y-1">
+                            <p class="text-[12px] text-gray-200 leading-tight">✓ Robust cash flows from O2C business model.</p>
+                            <p class="text-[12px] text-gray-200 leading-tight">✓ Massive green energy infrastructure play.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <span class="text-[10px] font-bold uppercase text-rose-500 tracking-wider">Key Risk Factors</span>
+                        <div class="space-y-1">
+                            <p class="text-[12px] text-gray-300 leading-tight">✕ Exposure to volatile global petrochemical margins.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stock-card bg-[#161B22] border border-gray-800 p-6 rounded-2xl transition-all duration-300 flex flex-col">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold tracking-tight">TCS</h3>
+                        <span class="text-[10px] text-gray-500 font-mono tracking-widest uppercase">NSE: TCS</span>
+                    </div>
+                    <span class="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-full text-xs font-bold border border-emerald-500/20">
+                        +3.2% Exp.
+                    </span>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">Strong contract renewals in European markets. AI detects shift toward high-margin cloud migration deals.</p>
+                
+                <div class="space-y-5 pt-4 border-t border-gray-800 mt-auto">
+                    <div class="flex flex-col gap-1">
+                        <span class="text-[10px] font-bold uppercase text-emerald-500 tracking-wider">Key Growth Pros</span>
+                        <div class="space-y-1">
+                            <p class="text-[12px] text-gray-200 leading-tight">✓ Leading industry margins and dividend yield.</p>
+                            <p class="text-[12px] text-gray-200 leading-tight">✓ Dominant position in BFSI digital transformation.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <span class="text-[10px] font-bold uppercase text-rose-500 tracking-wider">Key Risk Factors</span>
+                        <div class="space-y-1">
+                            <p class="text-[12px] text-gray-300 leading-tight">✕ Slowdown in North American discretionary IT spend.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row justify-between items-end mb-8 gap-6">
+            <div>
+                <h2 class="text-2xl font-bold">Historical Audit</h2>
+                <p class="text-gray-400 text-sm">Review past performance with full research transparency.</p>
+            </div>
+            <div class="flex flex-wrap items-center gap-4 bg-[#161B22] p-4 rounded-xl border border-gray-800 shadow-xl">
+                <div class="flex flex-col gap-1">
+                    <label class="text-[10px] uppercase text-gray-500 font-bold ml-1">From</label>
+                    <input type="date" class="bg-[#0B0E14] border border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-300 outline-none focus:border-emerald-500">
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label class="text-[10px] uppercase text-gray-500 font-bold ml-1">To</label>
+                    <input type="date" class="bg-[#0B0E14] border border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-300 outline-none focus:border-emerald-500">
+                </div>
+                <button class="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-2 rounded-lg text-sm font-bold transition h-[38px] mt-auto">Search Range</button>
+            </div>
+        </div>
+
+    </main>
+</body>
+</html>
