@@ -24,3 +24,21 @@ ADD COLUMN stop_loss DECIMAL(10,2) AFTER call_price;
 
 ALTER TABLE trading.stock_upside_analysis
 ADD COLUMN sell_price DECIMAL(10,2) AFTER call_price;
+
+ALTER TABLE trading.stock_upside_analysis CHANGE COLUMN latest_market_news summary TEXT;
+
+
+ALTER TABLE trading.stock_upside_analysis
+ADD COLUMN call_opened_at Date AFTER current_price;
+
+ALTER TABLE trading.stock_upside_analysis DROP COLUMN sell_price;
+
+ALTER TABLE trading.stock_upside_analysis
+ADD COLUMN target_price DECIMAL(10,2) AFTER stop_loss;
+
+ALTER TABLE trading.stock_upside_analysis 
+MODIFY COLUMN time_horizon VARCHAR(50) NULL;
+
+
+ALTER TABLE trading.stock_upside_analysis
+ADD COLUMN confidence_percentage VARCHAR(50) AFTER risks;

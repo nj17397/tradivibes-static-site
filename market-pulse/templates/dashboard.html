@@ -7,187 +7,22 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --bg: #f2f4f8;
-            --card-bg: #ffffff;
-            --text-primary: #1f2937;
-            --text-secondary: #6b7280;
-            --accent: #2563eb;
-            --border: #e5e7eb;
-        }
-
-        body.dark {
-            --bg: #0f172a;
-            --card-bg: #111827;
-            --text-primary: #f9fafb;
-            --text-secondary: #9ca3af;
-            --border: #1f2937;
-        }
-
-        body {
-            margin: 0;
-            font-family: "Inter", sans-serif;
-            background: var(--bg);
-            color: var(--text-primary);
-        }
-
-        header {
-            background: var(--card-bg);
-            border-bottom: 1px solid var(--border);
-            padding: 18px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header h1 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin: 0;
-            color: var(--accent);
-        }
-
-        .toggle-btn {
-            background: none;
-            border: 1px solid var(--border);
-            padding: 8px 14px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-
-        main {
-            padding: 28px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 10px;
-            padding: 18px;
-            border: 1px solid var(--border);
-        }
-
-        /* 🔥 FIX: Proper hierarchy & spacing */
-        .card-header {
-            margin-bottom: 12px;
-        }
-
-        .stock-name {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin: 0 0 6px 0;
-            line-height: 1.3;
-        }
-
-        .ticker {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 3px 8px;
-            border-radius: 999px;
-            background: rgba(37, 99, 235, 0.1);
-            color: var(--accent);
-            letter-spacing: 0.03em;
-        }
-
-        .news {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin: 12px 0;
-            line-height: 1.5;
-        }
-
-        .upside {
-            font-weight: 600;
-            color: #16a34a;
-            margin-bottom: 10px;
-        }
-
-        .section-title {
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            color: var(--text-secondary);
-            margin-top: 12px;
-        }
-
-        ul {
-            padding-left: 18px;
-            margin: 6px 0;
-            font-size: 0.85rem;
-        }
-
-        .risk {
-            color: #dc2626;
-        }
-
-        /* Date Picker CSS */
-        .date-filter {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-            margin-top: 5%;
-            margin-bottom: 16px;
-        }
-
-        .date-filter label {
-            font-weight: 500;
-        }
-
-        .date-filter button {
-            padding: 6px 12px;
-            cursor: pointer;
-        }
-
-        /* Table Css */
-
-        #history-table {
-            margin-top: 3%;
-        }
-
-        .history-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .history-table th,
-        .history-table td {
-            padding: 10px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
-
-        .history-table th {
-            background: #f5f5f5;
-            font-weight: 600;
-        }
-
-        .profit {
-            color: green;
-            font-weight: 600;
-        }
-
-        .loss {
-            color: red;
-            font-weight: 600;
-        }
-
-        
-
-
-        
-    </style>
+    <link rel="stylesheet" href="../static/styles/dashboard.css">
+    
 </head>
 <body>
+    <svg style="display:none;" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="icon-sort" viewBox="0 0 24 24">
+        <polyline
+            points="6 15 12 9 18 15"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+    </symbol>
+    </svg>
 
 <header>
     <h1>MarketPulse</h1>
@@ -196,7 +31,7 @@
 
 <main>
     <div id="stock-cards" class="grid"></div>
-    <div class="date-filter">
+    <!-- <div class="date-filter">
         <label>
             From:
             <input type="date" id="fromDate">
@@ -209,27 +44,101 @@
 
         <button id="applyDateFilterBtn">Apply</button>
         <button  id="resetDateFilterBtn">Reset</button>
-            <!-- <button  id="resetBtn" onclick="resetFilter()">Reset</button> -->
 
-    </div>
+    </div> -->
     <div id="history-table"> 
         
 
         <table class="history-table">
             <thead>
                 <tr>
-                    <th>Stock</th>
-                    <th>Called On</th>
+                    <th>Stock
+                        <svg class="sort-icon" data-sort="stock_name" width="21" height="21">
+                            <use href="#icon-sort"></use>
+                        </svg>
+                    </th>
+                   
+                     <th>
+                        Called On
+                        <svg
+                            id="calledOnFilterIcon"
+                            class="filter-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            width="14"
+                            height="14"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <polygon points="22 3 2 3 10 12 10 19 14 21 14 12 22 3"/>
+                        </svg>
+
+                        <!-- Filter Popup -->
+                        <div class="filter-popup" id="calledOnFilterPopup">
+                            <div class="popup-row">
+                                <label>From</label>
+                                <input type="date" id="calledOnFrom">
+                            </div>
+
+                            <div class="popup-row">
+                                <label>To</label>
+                                <input type="date" id="calledOnTo">
+                            </div>
+
+                            <div class="popup-actions">
+                                <button id="applyCalledOnFilter">Apply</button>
+                                <button id="resetCalledOnFilter">Reset</button>
+                            </div>
+                        </div>
+                    </th>
+
                     <th>Called At</th>
                     <th>Sold At</th>
-                    <th>Profit (%)</th>
+                    <th>Profit (%) 
+                        <svg class="sort-icon" data-sort="pct_profit" width="21" height="21">
+                            <use href="#icon-sort"></use>
+                        </svg>
+                    </th>
                     <th>Stop Loss</th>
-                    <th>Period</th>
-                    <th>Status</th>
+                    <th>Period
+                        <svg class="sort-icon" data-sort="holding_week" width="21" height="21">
+                            <use href="#icon-sort"></use>
+                        </svg>
+                        
+                    </th>
+                    <th>Status
+                        <svg class="sort-icon" data-sort="call_status" width="21" height="21">
+                            <use href="#icon-sort"></use>
+                        </svg>
+                    </th>
                 </tr>
             </thead>
             <tbody id="history-table-body"></tbody>
         </table>
+        <!-- pagination -->
+
+        <div class="pagination-container">
+            <div class="page-size">
+                Show
+                <select id="pageSizeSelect">
+                    <option value="2">2</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                </select>
+                entries
+            </div>
+
+            <div class="pagination">
+                <button id="prevPage">Prev</button>
+                <div id="pageNumbers"></div>
+                <button id="nextPage">Next</button>
+            </div>
+        </div>
+
+
     </div>
 </main>
 
